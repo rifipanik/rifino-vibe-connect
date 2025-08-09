@@ -43,7 +43,7 @@ export const DEMO_PRODUCTS: Product[] = [
     id: "jnr-16k-fraise-pasteque",
     nom: "JNR 16k — Fraise-Pastèque",
     autonomie: 16000,
-    saveurs: ["fraise-pasteque"],
+    saveurs: ["fraise-pastèque"],
     nicotine: "20 mg/ml",
     origine: "UE",
     images: ["{{IMG_JNR_16K_FP_1}}"],

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DEMO_PRODUCTS } from "@/data/products";
-import { COUNTRY_INFO, CountryKey, flavorToVariant } from "@/lib/flavors";
+import { COUNTRY_INFO, CountryKey, flavorToVariant, SOCIAL_LINKS } from "@/lib/flavors";
 import { ProductCard } from "@/components/ProductCard";
 import { SocialLinks } from "@/components/SocialLinks";
 import { Zap, Truck, Shield, Clock, ArrowRight, Package, Battery, Star } from "lucide-react";
@@ -36,13 +36,17 @@ export function Home({ selectedCountry = "CH" }: HomeProps) {
               RifinoPanik : le catalogue street & sérieux, pour vapoteurs en Suisse, frontière 74 et Maroc.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-4 bg-white text-black hover:bg-gray-100 font-bold">
-                <Zap className="mr-2 h-5 w-5" />
-                Commander immédiatement
+              <Button asChild size="lg" className="text-lg px-8 py-4 bg-white text-black hover:bg-gray-100 font-bold">
+                <a href={SOCIAL_LINKS.telegram} target="_blank" rel="noopener noreferrer">
+                  <Zap className="mr-2 h-5 w-5" />
+                  Commander immédiatement
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-black">
-                <Package className="mr-2 h-5 w-5" />
-                Découvrir nos offres
+              <Button asChild size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-black">
+                <Link to="/offres">
+                  <Package className="mr-2 h-5 w-5" />
+                  Découvrir nos offres
+                </Link>
               </Button>
             </div>
           </div>
