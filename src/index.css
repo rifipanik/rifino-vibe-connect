@@ -8,50 +8,82 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Colors - RifinoPanik Brand */
+    --background: 0 0% 4.3%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 6.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 6.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 73% 52%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 96% 48%;
+    --secondary-foreground: 0 0% 4.3%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 22 100% 50%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 73% 52%;
 
     --radius: 0.5rem;
 
+    /* Brand Colors */
+    --brand-black: 0 0% 4.3%;
+    --brand-red: 0 73% 52%;
+    --brand-yellow: 45 96% 48%;
+    --brand-orange: 22 100% 50%;
+    --brand-blue: 214 100% 55%;
+
+    /* Neon Effects */
+    --neon-alpha-standard: 0.35;
+    --neon-alpha-marquee: 0.6;
+    --neon-blur-standard: 18px;
+    --neon-blur-marquee: 36px;
+
+    /* Flavor Tokens */
+    --flavor-mangue-grad: linear-gradient(135deg, hsl(45 96% 48%), hsl(22 100% 50%));
+    --flavor-mangue-glow: 255, 106, 0;
+    --flavor-mangue-fg: hsl(0 0% 4.3%);
+
+    --flavor-fraise-grad: linear-gradient(135deg, hsl(342 76% 56%), hsl(0 85% 70%));
+    --flavor-fraise-glow: 255, 42, 78;
+    --flavor-fraise-fg: hsl(0 0% 98%);
+
+    --flavor-fp-grad: linear-gradient(135deg, hsl(342 76% 56%), hsl(130 61% 59%));
+    --flavor-fp-glow: 255, 77, 126;
+    --flavor-fp-fg: hsl(0 0% 98%);
+
+    --flavor-pina-grad: linear-gradient(135deg, hsl(48 100% 85%), hsl(45 100% 70%));
+    --flavor-pina-glow: 255, 209, 102;
+    --flavor-pina-fg: hsl(0 0% 4.3%);
+
+    --flavor-blueberry-grad: linear-gradient(135deg, hsl(214 100% 55%), hsl(251 91% 59%));
+    --flavor-blueberry-glow: 31, 117, 254;
+    --flavor-blueberry-fg: hsl(0 0% 98%);
+
+    --flavor-mixed-grad: linear-gradient(135deg, hsl(271 76% 59%), hsl(319 84% 58%));
+    --flavor-mixed-glow: 158, 52, 255;
+    --flavor-mixed-fg: hsl(0 0% 98%);
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -100,6 +132,117 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
+}
+
+/* Flavor Variant Appliers */
+.variant--mangue { --bg-grad: var(--flavor-mangue-grad); --glow: var(--flavor-mangue-glow); --fg: var(--flavor-mangue-fg); }
+.variant--fraise { --bg-grad: var(--flavor-fraise-grad); --glow: var(--flavor-fraise-glow); --fg: var(--flavor-fraise-fg); }
+.variant--fraisepasteque { --bg-grad: var(--flavor-fp-grad); --glow: var(--flavor-fp-glow); --fg: var(--flavor-fp-fg); }
+.variant--pinacolada { --bg-grad: var(--flavor-pina-grad); --glow: var(--flavor-pina-glow); --fg: var(--flavor-pina-fg); }
+.variant--blueberry { --bg-grad: var(--flavor-blueberry-grad); --glow: var(--flavor-blueberry-glow); --fg: var(--flavor-blueberry-fg); }
+.variant--mixedberries { --bg-grad: var(--flavor-mixed-grad); --glow: var(--flavor-mixed-glow); --fg: var(--flavor-mixed-fg); }
+
+/* Neon Intensities */
+.neon--standard { box-shadow: 0 0 var(--neon-blur-standard) rgba(var(--glow), var(--neon-alpha-standard)); }
+.neon--marquee { box-shadow: 0 0 var(--neon-blur-marquee) rgba(var(--glow), var(--neon-alpha-marquee)); }
+
+/* Component Utilities */
+.card-flavor {
+  background: radial-gradient(transparent 20%, rgba(var(--glow), 0.08) 60%), var(--bg-grad);
+  color: var(--fg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.badge-flavor, .chip-flavor {
+  background: rgba(var(--glow), 0.12);
+  color: var(--fg);
+  border: 1px solid rgba(var(--glow), 0.35);
+  transition: all 0.2s ease;
+}
+
+.banner-flavor {
+  background: var(--bg-grad);
+  position: relative;
+}
+
+.banner-flavor::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  z-index: -1;
+  filter: blur(var(--neon-blur-marquee));
+  background: radial-gradient(circle at 50% 60%, rgba(var(--glow), var(--neon-alpha-marquee)) 0%, transparent 60%);
+}
+
+.hero-text-glow {
+  text-shadow: 0 0 20px rgba(var(--glow), 0.5), 0 0 40px rgba(var(--glow), 0.3);
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out;
+}
+
+/* Hover Effects */
+.card-flavor:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 var(--neon-blur-marquee) rgba(var(--glow), var(--neon-alpha-marquee));
+}
+
+.chip-flavor:hover {
+  background: rgba(var(--glow), 0.2);
+  transform: scale(1.05);
+}
+
+/* Age Gate Modal */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+/* Fixed CTA Button */
+.fixed-cta {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+  border-radius: 50px;
+  padding: 12px 24px;
+  background: var(--flavor-mangue-grad);
+  color: var(--flavor-mangue-fg);
+  box-shadow: 0 4px 20px rgba(255, 106, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.fixed-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(255, 106, 0, 0.6);
 }
